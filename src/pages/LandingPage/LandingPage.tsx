@@ -107,7 +107,7 @@ export default function LandingPage() {
             <img src={landingPagePpl} alt="Imagem de pessoas na landing page" className="max-w-full h-auto" />
           </div>
         </div>
-        <div className="LandingPageMiddle text-center mt-44">
+        <div className="LandingPageMiddle text-center mt-44 mb-10">
           <div className='textOffers'>
             <p className='text-4xl font-bold font-[volkhov] mb-2'>Ofertas <span className='text-customAzul'>exclusivas & descontos</span></p>
             <p className=' font-poppins text-[#666666]'>Descubra nossos fantásticos descontos para reservas</p>
