@@ -15,7 +15,6 @@ import Casa7 from "./assets/img/casa7.jpg";
 import Casa8 from "./assets/img/casa8.jpg";
 import Casa9 from "./assets/img/casa9.jpeg";
 import Casa10 from "./assets/img/casa10.jpg";
-import downArrowSvg from "./assets/img/down-arrow-svgrepo-com.svg";
 
 export default function LandingPage() {
   const [startDate, setStartDate] = useState<Date | null>(null);
@@ -214,9 +213,23 @@ export default function LandingPage() {
                 </button>
               </div>
             </div>
-            <div className='downSvg flex justify-center mt-32'>
-              <img src={downArrowSvg} alt="" className='w-20 h-20' />
+
+            <div className="flex justify-center mt-32">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                width="84"
+                height="84"
+                className="text-customAzul animate-bounce"
+              >
+                <path
+                  d="M12 19l-7-7 1.41-1.41L11 15.17V4h2v11.17l4.59-4.58L19 12l-7 7z"
+                  fill="currentColor"
+                />
+              </svg>
             </div>
+
           </div>
 
           <div className="w-full md:w-1/3 mt-8 md:mt-0 md:mr-10 flex justify-center hidden md:block">
@@ -273,7 +286,7 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-      </div>
+      </div >
     </>
   );
 }
