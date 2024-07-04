@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaRegEnvelope } from 'react-icons/fa';
 import Header from "../../components/Header/Header";
 import landingPagePpl from "./assets/img/landingPagePpl.svg";
 import DatePicker from 'react-datepicker';
@@ -15,6 +16,7 @@ import Casa7 from "./assets/img/casa7.jpg";
 import Casa8 from "./assets/img/casa8.jpg";
 import Casa9 from "./assets/img/casa9.jpeg";
 import Casa10 from "./assets/img/casa10.jpg";
+import Footer from '@/components/Footer/Footer';
 
 export default function LandingPage() {
   const [startDate, setStartDate] = useState<Date | null>(null);
@@ -236,7 +238,7 @@ export default function LandingPage() {
             <img src={landingPagePpl} alt="Imagem de pessoas na landing page" className="max-w-full h-auto" />
           </div>
         </div>
-        <div className="LandingPageMiddle text-center mt-44 mb-10">
+        <div className="LandingPageMiddle text-center mt-44 mb-60">
           <div className='textOffers'>
             <p className='text-4xl font-bold font-[volkhov] mb-2'>Ofertas <span className='text-customAzul'>exclusivas & descontos</span></p>
             <p className=' font-poppins text-[#666666]'>Descubra nossos fantásticos descontos para reservas</p>
@@ -286,7 +288,68 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
+
+        <div className="flex items-center justify-center min-h-full max-h-96 relative p-4 sm:p-10">
+          <div className="bg-customVermelho p-10 sm:p-20 rounded-xl text-center relative overflow-hidden">
+            <p className="text-white mb-4 text-lg sm:text-3xl font-volkhov break-words">
+              Inscreva-se e receba ofertas e descontos exclusivos
+            </p>
+            <div className="flex justify-center mt-10 sm:mt-20">
+              <div className="relative w-full sm:w-2/3">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <FaRegEnvelope className="text-gray-500 opacity-40" />
+                </div>
+                <input
+                  type="email"
+                  placeholder="Insira seu email"
+                  className="p-3 pl-10 w-full rounded-md pr-28"
+                />
+                <button className="absolute top-1/2 transform -translate-y-1/2 right-0 bg-customAzul text-white py-2.5 px-3 mr-1 text-sm rounded-md">
+                  Inscrever-se
+                </button>
+              </div>
+            </div>
+
+            <div className="absolute bottom-0 left-0 w-full h-full flex justify-start items-end">
+              <div className="relative">
+                <div className="h-8 w-8 sm:h-16 sm:w-16 bg-gradient-to-br from-yellow-300 to-transparent rounded-full absolute bottom-0 left-0 ml-2 sm:ml-4 transform rotate-45"></div>
+              </div>
+              <div className="relative">
+                <div className="h-6 w-6 sm:h-12 sm:w-12 bg-gradient-to-br from-yellow-300 to-transparent rounded-full absolute bottom-0 left-0 ml-8 sm:ml-16 transform rotate-45"></div>
+              </div>
+              <div className="relative">
+                <div className="h-10 w-10 sm:h-20 sm:w-20 bg-gradient-to-br from-yellow-300 to-transparent rounded-full absolute bottom-0 left-0 ml-14 sm:ml-28 transform rotate-45"></div>
+              </div>
+              <div className="relative">
+                <div className="h-7 w-7 sm:h-14 sm:w-14 bg-gradient-to-br from-yellow-300 to-transparent rounded-full absolute bottom-0 left-0 ml-20 sm:ml-40 transform rotate-45"></div>
+              </div>
+              <div className="relative">
+                <div className="h-9 w-9 sm:h-18 sm:w-18 bg-gradient-to-br from-yellow-300 to-transparent rounded-full absolute bottom-0 left-0 ml-26 sm:ml-52 transform rotate-90"></div>
+              </div>
+            </div>
+
+            <div className="absolute top-0 right-0 w-full h-full flex justify-end items-start">
+              <div className="relative">
+                <div className="h-8 w-8 sm:h-16 sm:w-16 bg-gradient-to-br from-yellow-300 to-transparent rounded-full absolute top-0 right-0 mr-2 sm:mr-4 transform rotate-45"></div>
+              </div>
+              <div className="relative">
+                <div className="h-6 w-6 sm:h-12 sm:w-12 bg-gradient-to-br from-yellow-300 to-transparent rounded-full absolute top-0 right-0 mr-8 sm:mr-16 transform rotate-45"></div>
+              </div>
+              <div className="relative">
+                <div className="h-10 w-10 sm:h-20 sm:w-20 bg-gradient-to-br from-yellow-300 to-transparent rounded-full absolute top-0 right-0 mr-14 sm:mr-28 transform rotate-45"></div>
+              </div>
+              <div className="relative">
+                <div className="h-7 w-7 sm:h-14 sm:w-14 bg-gradient-to-br from-yellow-300 to-transparent rounded-full absolute top-0 right-0 mr-20 sm:mr-40 transform rotate-45"></div>
+              </div>
+              <div className="relative">
+                <div className="h-9 w-9 sm:h-18 sm:w-18 bg-gradient-to-br from-yellow-300 to-transparent rounded-full absolute top-0 right-0 mr-26 sm:mr-52 transform rotate-90"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div >
+      <Footer />
     </>
   );
 }
