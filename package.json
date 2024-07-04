@@ -36,6 +36,7 @@
     "react-leaflet": "^4.2.1",
     "react-multi-carousel": "^2.8.5",
     "react-router-dom": "^6.23.1",
+    "react-toast-notifications": "^2.5.1",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "yup": "^1.4.0",

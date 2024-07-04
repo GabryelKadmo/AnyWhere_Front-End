@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaRegEnvelope } from 'react-icons/fa';
+import { useToasts } from 'react-toast-notifications';
 import Header from "../../components/Header/Header";
 import landingPagePpl from "./assets/img/landingPagePpl.svg";
 import DatePicker from 'react-datepicker';
@@ -22,6 +23,8 @@ export default function LandingPage() {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [location, setLocation] = useState<string | null>(null);
   const [guests, setGuests] = useState<string | null>(null);
+  const [email, setEmail] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleExploreClick = () => {
     console.log({
@@ -30,6 +33,25 @@ export default function LandingPage() {
       guests
     });
   };
+  const sendEmail = () => {
+    if (!email.trim()) {
+      setErrorMessage('Por favor, insira um endereço de email.');
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      setErrorMessage('Por favor, insira um endereço de email válido.');
+      return;
+    }
+
+    // Lógica para enviar o email aqui
+    console.log("Email enviado:", email);
+    setErrorMessage('');
+    setEmail('');
+  };
+
+
 
   const carrosselItems = [
     {
@@ -295,22 +317,28 @@ export default function LandingPage() {
               Inscreva-se e receba ofertas e descontos exclusivos
             </p>
             <div className="flex justify-center mt-10 sm:mt-20">
-              <div className="relative w-full sm:w-2/3">
+              <div className="relative w-full sm:w-2/3 z-10">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaRegEnvelope className="text-gray-500 opacity-40" />
+                  <FaRegEnvelope className="text-gray-500 opacity-40" style={{ zIndex: 100 }} />
                 </div>
                 <input
                   type="email"
                   placeholder="Insira seu email"
-                  className="p-3 pl-10 w-full rounded-md pr-28"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="p-3 pl-10 w-full rounded-md pr-28 z-20 relative outline-none"
+                  style={{ zIndex: 20 }}
                 />
-                <button className="absolute top-1/2 transform -translate-y-1/2 right-0 bg-customAzul text-white py-2.5 px-3 mr-1 text-sm rounded-md">
+                <button
+                  className="absolute top-1/2 transform -translate-y-1/2 right-0 bg-customAzul text-white py-2.5 px-3 mr-1 text-sm rounded-md z-20"
+                  onClick={sendEmail}
+                >
                   Inscrever-se
                 </button>
               </div>
             </div>
 
-            <div className="absolute bottom-0 left-0 w-full h-full flex justify-start items-end">
+            <div className="absolute bottom-0 left-0 w-full h-full flex justify-start items-end z-0">
               <div className="relative">
                 <div className="h-8 w-8 sm:h-16 sm:w-16 bg-gradient-to-br from-yellow-300 to-transparent rounded-full absolute bottom-0 left-0 ml-2 sm:ml-4 transform rotate-45"></div>
               </div>
@@ -328,7 +356,7 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="absolute top-0 right-0 w-full h-full flex justify-end items-start">
+            <div className="absolute top-0 right-0 w-full h-full flex justify-end items-start z-0">
               <div className="relative">
                 <div className="h-8 w-8 sm:h-16 sm:w-16 bg-gradient-to-br from-yellow-300 to-transparent rounded-full absolute top-0 right-0 mr-2 sm:mr-4 transform rotate-45"></div>
               </div>
