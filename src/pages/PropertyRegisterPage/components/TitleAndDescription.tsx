@@ -46,14 +46,32 @@ export default function TitleAndDescription() {
 
   const handleValorChange = (event: { target: { value: any; }; }) => {
     const inputValue = event.target.value;
+  
+    // Remove todos os caracteres não numéricos do valor de entrada
     const numericValue = inputValue.replace(/\D/g, "");
-    const sanitizedValue = Math.min(parseInt(numericValue), 50000000);
+  
+    // Converte o valor numérico para um número inteiro
+    let parsedValue = parseInt(numericValue);
+  
+    // Se o valor não for um número válido, define como zero
+    if (isNaN(parsedValue)) {
+      parsedValue = 0;
+    }
+  
+    // Limita o valor máximo a 50.000.00 (50 milhões)
+    const sanitizedValue = Math.min(parsedValue, 50000000);
+  
+    // Formata o valor para exibir como moeda
     const formattedValue = new Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL",
+      minimumFractionDigits: 2, // Garante duas casas decimais
     }).format(sanitizedValue / 100);
+  
+    // Atualiza o estado do formulário com o valor formatado
     setFormData({ ...formData, value: formattedValue });
   };
+  
 
   const caracteresRestantesTitulo = 56 - formData.title.length;
   const caracteresRestantesDescricao = 700 - formData.description.length;
