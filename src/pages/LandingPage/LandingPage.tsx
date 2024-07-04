@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { FaRegEnvelope } from 'react-icons/fa';
-import { useToasts } from 'react-toast-notifications';
 import Header from "../../components/Header/Header";
 import landingPagePpl from "./assets/img/landingPagePpl.svg";
 import DatePicker from 'react-datepicker';
@@ -24,7 +23,6 @@ export default function LandingPage() {
   const [location, setLocation] = useState<string | null>(null);
   const [guests, setGuests] = useState<string | null>(null);
   const [email, setEmail] = useState<string>('');
-  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleExploreClick = () => {
     console.log({
@@ -35,19 +33,16 @@ export default function LandingPage() {
   };
   const sendEmail = () => {
     if (!email.trim()) {
-      setErrorMessage('Por favor, insira um endereço de email.');
       return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-      setErrorMessage('Por favor, insira um endereço de email válido.');
       return;
     }
 
     // Lógica para enviar o email aqui
     console.log("Email enviado:", email);
-    setErrorMessage('');
     setEmail('');
   };
 
